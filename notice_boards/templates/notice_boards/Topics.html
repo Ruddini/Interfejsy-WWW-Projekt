@@ -1,0 +1,14 @@
+{% extends "notice_boards/base.html" %}
+
+{% block content %}
+<ul>
+    {% for topic in topics %}
+        <li><a href="{% url 'notice_boards:topic' topic.id %}">{{ topic }}</a> </li>
+    {% empty %}
+        <p>List is empty</p>
+    {% endfor %}
+    <div>
+      <a type="button" class="btn btn-outline-secondary" href="{% url 'notice_boards:new_topic' %}">New Topic</a>
+    </div>
+</ul>
+{% endblock %}

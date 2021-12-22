@@ -1,0 +1,10 @@
+{% extends 'notice_boards/base.html' %}
+
+{% block content %}
+    <p>Add new Notice</p>
+    <form action="{% url 'notice_boards:edit_notice' notice.id %}" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+    <button type="submit" name="submit" class="btn btn-outline-success">Submit Notice</button>
+    </form>
+{% endblock %}
