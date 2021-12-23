@@ -64,3 +64,14 @@ def edit_notice(request, notice_id):
             return redirect('notice_boards:topic', topic_id=topic.id)
     content = {"form":form,"notice":notice}
     return render(request,'notice_boards/edit_notice.html',content)
+
+def search(request):
+
+    if request.method != "POST":
+        pass
+    else:
+        searched = request.POST['searched']
+        search_result = Topic.objects.filter(text__icontains=searched)
+
+    content = {'searched': searched, 'search_result':search_result}
+    return render(request,'notice_boards/search.html',content)

@@ -1,0 +1,17 @@
+{% extends 'notice_boards/base.html' %}
+
+{% block content %}
+    {% if searched %}
+        <h1> Result of search: {{ searched }}</h1>
+        <ul>
+        {% for result in search_result %}
+            <li>
+                <a href="{% url 'notice_boards:topic' result.id %}" >{{ result }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h1> Sorry! Any results...</h1>
+    {% endif %}
+
+{% endblock %}

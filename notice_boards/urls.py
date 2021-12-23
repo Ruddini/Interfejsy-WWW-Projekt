@@ -17,5 +17,7 @@ urlpatterns = [
     path('new_notice/<int:topic_id>/',views.new_notice, name='new_notice'),
     #edit notice
     path('edit_notice/<int:notice_id>/',views.edit_notice, name="edit_notice"),
+    #Search
+    path('search/',views.search, name='search')
 
 ]
