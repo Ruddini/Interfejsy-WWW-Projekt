@@ -13,7 +13,10 @@ class Notice(models.Model):
     """Notice Class"""
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     text = models.TextField()
+    title = models.CharField(max_length=200)
     date_added = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(null=True, blank=True, upload_to="images/")
+
 
     class Meta:
         verbose_name_plural = 'notices'

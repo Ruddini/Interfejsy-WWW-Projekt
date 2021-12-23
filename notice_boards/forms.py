@@ -12,6 +12,6 @@ class TopicForm(forms.ModelForm):
 class NoticeForm(forms.ModelForm):
     class Meta:
         model = Notice
-        fields = ['text']
-        labels = {'text':''}
+        fields = ['title','text','image']
+        labels = {'title':'','text':'','image':''}
         widgets = {"text": forms.Textarea(attrs={"cols":80})}

@@ -2,8 +2,9 @@
 
 {% block content %}
     <p>Add new Notice</p>
-    <form action="{% url 'notice_boards:new_notice' topic.id %}" method="post">
+    <form action="{% url 'notice_boards:new_notice' topic.id %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
+        {{ form.media }}
       {{ form.as_p }}
     <button type="submit" name="submit" class="btn btn-outline-success">Submit Notice</button>
     </form>

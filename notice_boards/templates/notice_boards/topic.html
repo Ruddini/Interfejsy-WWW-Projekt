@@ -8,7 +8,13 @@
         <li>
         <div class="card">
           <div class="card-header">
-              {{ notice.text | linebreaks }}
+              {{ notice.title | linebreaks }}
+          </div>
+            <div class="card-body">
+             {{ notice.text | linebreaks }}
+             {% if notice.image %}
+                <img src="{{ notice.image.url }}">
+             {% endif %}
           </div>
           <div class="card-body">
             {{ notice.date_added | date:'d M Y H:i'}}

@@ -39,7 +39,7 @@ def new_notice(request, topic_id):
     if request.method!= "POST":
         form = NoticeForm()
     else:
-        form = NoticeForm(data=request.POST)
+        form = NoticeForm(request.POST, request.FILES)
         if form.is_valid():
             new_notice = form.save(commit=False)
             new_notice.topic = topic
@@ -56,7 +56,7 @@ def edit_notice(request, notice_id):
     if request.method != "POST":
         form = NoticeForm(instance = notice)
     else:
-        form = NoticeForm(instance = notice, data=request.POST)
+        form = NoticeForm(request.POST, request.FILES,instance = notice)
         if form.is_valid():
             new_notice = form.save(commit=False)
             new_notice.topic = topic
