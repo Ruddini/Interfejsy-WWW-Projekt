@@ -1,11 +1,14 @@
 {% extends 'notice_boards/base.html' %}
 
 {% block content %}
-<h1>{{ topic }}</h1>
+  <div class="text-center m-4 ">
+    <h1 class="display-3">{{ topic }}</h1>
+  </div>
 
-  <ul>
+
+  <div class="container mt-4">
     {% for notice in notices %}
-        <li>
+      <div class="mb-5">
         <div class="card">
           <div class="card-header">
               {{ notice.title | linebreaks }}
@@ -20,17 +23,18 @@
             {{ notice.date_added | date:'d M Y H:i'}}
           </div>
         </div>
-        </li>
         <div>
           <a type="button" class="btn btn-outline-secondary" href="{% url 'notice_boards:edit_notice' topic.id %}">Edit Notice</a>
         </div>
+      </div>
 
     {% empty %}
-        <li> Nie ma jeszzce żadnych tematów w tym wątku </li>
+        <h1> List of board is empty </h1>
     {% endfor %}
-  </ul>
-    <div>
+
+    <div class="mb-5 text-center p-5">
       <a type="button" class="btn btn-outline-dark" href="{% url 'notice_boards:new_notice' topic.id %}">New Notice</a>
     </div>
+  </div>
 
 {% endblock content %}
