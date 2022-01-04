@@ -1,7 +1,10 @@
 {% extends "notice_boards/base.html" %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="text-center p-4 mt-3">
+  <h1 class="display-3"> Topics </h1>
+</div>
+<div class="container mt-3">
   <div class="list-group mb-4">
     {% for topic in topics %}
         <a href="{% url 'notice_boards:topic' topic.id %}" class="list-group-item list-group-item-action list-group-item-light">{{ topic }}</a>
@@ -11,5 +14,6 @@
     <div class="text-center mt-4">
       <a type="button" class="btn btn-outline-secondary" href="{% url 'notice_boards:new_topic' %}">New Topic</a>
     </div>
+  </div>
 </div>
 {% endblock %}

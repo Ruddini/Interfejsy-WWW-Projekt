@@ -1,11 +1,28 @@
 {% extends 'notice_boards/base.html' %}
 
 {% block content %}
-    <p>Add new Notice</p>
+    <h1 class="display-3 text-center ">Add new Notice</h1>
     <form action="{% url 'notice_boards:new_notice' topic.id %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-        {{ form.media }}
-      {{ form.as_p }}
-    <button type="submit" name="submit" class="btn btn-outline-success">Submit Notice</button>
+
+      <div class="form-group col-md-6 offset-md-3 ">
+
+        <div class="form-group">
+          <div class="col-md-4 offset-md-4 mb-4">
+            <input class="form-control "  name="title" rows="1" placeholder="Title of Notice..." >
+            </input>
+          </div>
+          <label class="col-form-label">Describe your Notice</label>
+          <textarea class="form-control" name="text" rows="15" placeholder="Describe your Notice"></textarea>
+            <div class="text-center p-3">
+              {{ form.image }}
+            </div>
+        </div>
+
+        <div class="text-center p-2">
+          <button type="submit" name="submit" class="btn btn-outline-success">Submit Notice</button>
+        </div>
+      </div>
+
     </form>
 {% endblock %}

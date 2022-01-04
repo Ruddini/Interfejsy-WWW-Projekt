@@ -26,9 +26,12 @@
             {{ notice.date_added | date:'d M Y H:i'}}
           </div>
         </div>
+      {% if user == notice.owner %}
         <div>
-          <a type="button" class="btn btn-outline-secondary" href="{% url 'notice_boards:edit_notice' topic.id %}">Edit Notice</a>
+        <p>{{ notice.user }}</p>
+          <a type="button" class="btn btn-outline-secondary" href="{% url 'notice_boards:edit_notice' notice.id %}">Edit Notice</a>
         </div>
+      {% endif %}
       </div>
 
     {% empty %}

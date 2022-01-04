@@ -18,6 +18,8 @@ urlpatterns = [
     #edit notice
     path('edit_notice/<int:notice_id>/',views.edit_notice, name="edit_notice"),
     #Search
-    path('search/',views.search, name='search')
+    path('search/',views.search, name='search'),
+    #Contact
+    path('contact/',views.contact, name='contact'),
 
 ]
