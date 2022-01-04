@@ -1,7 +1,10 @@
 {% extends 'notice_boards/base.html' %}
 
 {% block content %}
-  <div class="text-center m-4 ">
+<div class="mask gradient-custom">
+ <div class=" align-items-center vh-300">
+
+  <div class="text-center p-4 ">
     <h1 class="display-3">{{ topic }}</h1>
   </div>
 
@@ -29,12 +32,14 @@
       </div>
 
     {% empty %}
-        <h1> List of board is empty </h1>
+        <h1 class="display-3"> List of board is empty </h1>
     {% endfor %}
 
     <div class="mb-5 text-center p-5">
       <a type="button" class="btn btn-outline-dark" href="{% url 'notice_boards:new_notice' topic.id %}">New Notice</a>
     </div>
   </div>
+ </div>
+</div>
 
 {% endblock content %}

@@ -2,16 +2,21 @@
 
 {% block content %}
     {% if searched %}
-        <h1> Result of search: {{ searched }}</h1>
-        <ul>
+        <div class="text-center m-4 ">
+            <h1 class="display-3">Result of search: {{ searched }}</h1>
+        </div>
+        <div class="container mt-4">
         {% for result in search_result %}
-            <li>
-                <a href="{% url 'notice_boards:topic' result.id %}" >{{ result }}</a>
-            </li>
+
+                <a class="list-group-item list-group-item-action list-group-item-light text-center rounded"
+                   href="{% url 'notice_boards:topic' result.id %}" >{{ result }}</a>
+
         {% endfor %}
-        </ul>
+        </div>
     {% else %}
-        <h1> Sorry! Any results...</h1>
+        <div class="text-center m-4 ">
+            <h1 class="display-3"> Sorry! Any results...</h1>
+        </div>
     {% endif %}
 
 {% endblock %}
